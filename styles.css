@@ -1,0 +1,19 @@
+body {
+    max-width: 35%;
+    margin : 50px auto;
+    border:  solid 5px;
+    
+   
+}
+.display {
+    border:  saddlebrown solid 5px;
+    
+
+}
+.btnGO {
+    width: 60px;
+}
+button {
+    height: 30px;
+    width: 18%;
+}

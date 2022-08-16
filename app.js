@@ -13,7 +13,9 @@ const btnAdd = document.querySelector(".btnAdd");
 const btnSub = document.querySelector(".btnSub");
 const btnMul = document.querySelector(".btnMul");
 const btnDiv = document.querySelector(".btnDiv");
+const btnDecimal = document.querySelector(".btnDecimal")
 const btnClear = document.querySelector(".btnClear");
+const btnDeleteOne = document.querySelector('.btnDeleteOne')
 const btnGo = document.querySelector(".btnGo");
 const result = document.querySelector(".result");
 let nums = ["", "", "", "", "", "", "", ""];
@@ -89,6 +91,20 @@ btnDiv.addEventListener("click", function () {
   nums[i] = "/";
   i++;
 });
+
+btnDecimal.addEventListener('click', function () {
+  displayValue('.');
+  nums[i] += ".";
+}
+)
+
+btnDeleteOne.addEventListener('click', function () {
+  nums[i] = Math.floor(nums[i] / 10);
+  displayValue(nums[i])
+})
+
+
+
 btnClear.addEventListener("click", function () {
   input.innerHTML = "";
   result.innerHTML = "";
@@ -102,22 +118,22 @@ function displayValue(x) {
   input.innerHTML += x;
 }
 function add(x, y) {
-  let parsed = parseInt(x);
-  let parsed2 = parseInt(y);
+  let parsed = parseFloat(x);
+  let parsed2 = parseFloat(y);
   let res = parsed + parsed2;
   result.innerHTML = res;
   nums[d + 1] = res;
 }
 function subtract(x, y) {
-  let parsed = parseInt(x);
-  let parsed2 = parseInt(y);
+  let parsed = parseFloat(x);
+  let parsed2 = parseFloat(y);
   let res = parsed - parsed2;
   result.innerHTML = res;
   nums[d + 1] = res;
 }
 function multiply(x, y) {
-  let parsed = parseInt(x);
-  let parsed2 = parseInt(y);
+  let parsed = parseFloat(x);
+  let parsed2 = parseFloat(y);
   let res = parsed * parsed2;
   result.innerHTML = res;
   nums[d + 1] = res;
@@ -126,8 +142,8 @@ function divide(x, y) {
   if (y == "0") {
     result.innerHTML = "Cant div by zero";
   } else {
-    let parsed = parseInt(x);
-    let parsed2 = parseInt(y);
+    let parsed = parseFloat(x);
+    let parsed2 = parseFloat(y);
     let res = parsed / parsed2;
     result.innerHTML = res;
     nums[d + 1] = res;
